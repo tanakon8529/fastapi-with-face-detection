@@ -4,19 +4,21 @@ from fastapi import HTTPException
 from typing import Any
 from loguru import logger
 
-from app.apis.access.submod import generate_access_token, get_access_token
+from app.apis.face_detection.submod import face_detection_process
 
-def access_token(grant_type: str, user_info: Any):
-
+def get_face_detection():
     try:
-        if grant_type == "client_credentials":
-            result = generate_access_token(user_info)
-
-        elif grant_type == "get_client_credentials":
-            result = get_access_token(user_info)
-
+        result = face_detection_process()
         if result == None:
-            raise HTTPException(status_code=503, detail='access_token not found, please generate token')
+            raise HTTPException(status_code=404, detail='Not Found')
+        
+        if "error_code" in result:
+            if result["error_code"] == "16":
+                raise HTTPException(status_code=502, detail='{}'.format(result["msg"]))
+            raise HTTPException(status_code=400, detail='{}'.format(result["msg"]))
+        
+        if "errorCode" in result:
+            raise HTTPException(status_code=400, detail=result)
 
         return result
     except Exception as e:

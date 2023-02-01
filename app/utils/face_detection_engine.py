@@ -25,7 +25,7 @@ def webcam_capture(source):
     return frame, gray
 
 
-def face_detect(gray, cascasdepath="haarcascade_frontalface_default.xml"):
+def face_detect(gray, cascasdepath="/app/src/haarcascade_frontalface_default.xml"):
     # process face detection
     face_cascade = cv2.CascadeClassifier(cascasdepath)
     faces = face_cascade.detectMultiScale(

@@ -1,68 +1,26 @@
-# Backend for Simple Face Detection Challenges
+## To deploy with docker-compose command
+To install/update this application. 
+Run (if you see running and check error!!)
 
-Select a task from Task#1 or Task#2. 
+    docker-compose build
 
-## Task#1 Simple Backend for Simple Face Detection
+and (if you see running and check error!!)
 
-#### Requirements
-We have face detection engine which consume webcam image from localhost.
-However, we need to run engine in the high performance server. 
+     docker-compose up
 
-1. Such that, you must create a client which consume webcam and send data over HTTP to the engine that also consume data using HTTP server.
+Or >>build and up in one line<< (If you don't see running and check error.)
 
-2. We should deploy (run) the API, Queue (not required), and Worker in different hosts.
-   
-3. You may use any backend framework.
+    Run docker-compose up --build -d 
 
-4. You may use any queue (**not required**).
+To stop-application. 
 
-#### Extra points
-We don't required these, but you may show your skills in these ways:
-- clean and readable code
-- good object oriented style
-- apply HTTPS instead of HTTP
-- any new technology
-- message queue (**not required**)
+    docker-compose down 
 
-## Task#2 Scalable Backend for Simple Face Detection
+To uninstall this application. 
 
-#### Requirements
-1. Create an API as task#1 described, but it should received data in the json format and push data into a queue (**required**).
+    docker stack rm <stack name>
 
-2. Create a worker that consume data from the queue (**required**).
-
-3. We should start new workers (image consumer tasks) as many as need.
-
-4. Store the result in a database.
-
-#### Extra points
-We don't required these, but you may show your skills in these ways:
-- clean and readable code
-- good object oriented style
-- apply HTTPS instead of HTTP
-- any new technology
-- save the result in an object storage
-
-## Task#3 Front-end for Simple Face Detection
-
-#### Requirements
-1. Create a web app or mobile app to visualize the results from task#1 or task#2
-
-2. Should render detected faces in image, you may render in front-end or back-end
-
-3. Should draw bounding boxes or circle in rendered images
-   
-4. Connect to bankend using API
-
-#### Extra points
-We don't required these, but you may show your skills in these ways:
-- clean and readable code
-- good object oriented style
-- apply HTTPS instead of HTTP
-- any new technology
-- Use the native stacks or React, React Native stacks.
-
-## ============
+## ============ ORIGINAL ============ ##
 ## Installation
 run these command to install this project.
 

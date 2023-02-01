@@ -1,3 +1,8 @@
+## Route
+- Route access : proof of concept OAuth 2.0
+- Route face_detection : detect and count face on image and return
+
+
 ## To deploy with docker-compose command
 To install/update this application. 
 Run (if you see running and check error!!)

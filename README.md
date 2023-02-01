@@ -21,6 +21,8 @@ To uninstall this application.
     docker stack rm <stack name>
 
 ## ============ ORIGINAL ============ ##
+https://github.com/ratthapon/face-detection
+
 ## Installation
 run these command to install this project.
 

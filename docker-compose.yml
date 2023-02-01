@@ -1,0 +1,21 @@
+version: "3.9"
+services:
+  face_detection_apis:
+    container_name: face_detection_apis
+    restart: unless-stopped
+    image: 'face_detection_apis:${API_VERSION}'
+    volumes:
+      - .:/code
+    env_file:
+      - .env
+    build:
+      context: .
+      dockerfile: backend.dockerfile
+    command:
+      - /bin/sh
+      - -c
+      - |
+        gunicorn app.main:app --timeout 120 --workers 4 --worker-class uvicorn.workers.UvicornH11Worker -b 0.0.0.0:${PORT}
+    ports:
+      - ${PORT}:${PORT}
+
